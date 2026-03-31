@@ -25,13 +25,14 @@ class BankAccount:
         self.balance = self.balance - amount
 
 
-my_account = BankAccount(5575, "Prakash", 1000)
-print(my_account.balance)       
+if __name__ == "__main__":
+    my_account = BankAccount(5575, "Prakash", 1000)
+    print(my_account.balance)       
 
-# calling the deposit function
-my_account.deposit(2000)
-print("After deposit: ", my_account.balance)
+    # calling the deposit function
+    my_account.deposit(2000)
+    print("After deposit: ", my_account.balance)
 
-# calling the withdrawal function
-my_account.withdraw(1000)
-print("After Withdrawal: ", my_account.balance)
+    # calling the withdrawal function
+    my_account.withdraw(1000)
+    print("After Withdrawal: ", my_account.balance)
