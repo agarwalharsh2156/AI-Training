@@ -6,10 +6,12 @@ class SavingsAccount(BankAccount):
 
     # not a good practice to access a private variable like this.
     # def show(self):
-    #     return self._BankAccount__balance
+    #     return self._BankAccount__balance        # python accepts this as balance is a variable from BankAccount class.
+    #     return self.__balance                    # python interprets this as _SavingsAccount__balance which doesn't exist. Hence, an error.  
 
     # method overriding in python for deposit function
     def deposit(self, amount):
+        # Adding savings account bonus for each deposit a user makes.
         self.balance += amount + 10
         
     # accessing a private variable from the parent class.
