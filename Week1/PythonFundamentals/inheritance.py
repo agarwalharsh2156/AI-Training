@@ -1,4 +1,4 @@
-from Week1.encapsulation import BankAccount, BankAcc
+from Week1.PythonFundamentals.encapsulation import BankAccount, BankAcc
 
 class SavingsAccount(BankAccount):
     def __init__(self, account_number, name, amount):
