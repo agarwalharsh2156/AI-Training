@@ -37,3 +37,14 @@
 - Practicing OOPs with real life examples.
 - lambda functions
 - zip, enumerate, map, filter, sort, sorted, sum methods.
+
+**Day 5**
+- Went through Linear Algebra concepts.
+- Scalars & Matrices
+- Matrix multiplication
+- Dot Product
+- Transpose of a matrix
+- Eigenvalues and Eigenvectors
+- Determinants
+- Identity and Inverse Matrix
+- Linear Systems {main use in Linear Regression}
