@@ -1,2 +1,4 @@
 training_env/
 __pycache__
+data
+.ipynb_checkpoints
