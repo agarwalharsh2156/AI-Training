@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
 class Book(BaseModel):
@@ -30,7 +30,10 @@ def get_books(BookId: str):
     for i in inventory.keys():
         if BookId == i:
             return inventory[BookId]
-    return {"message": "Book Not Found."}
+    raise HTTPException(
+        status_code= 404,
+        detail = "Not Found"
+    )
 
 @app.post('/store-book/{BookId}', response_model=BookResponse)
 def create_book(book: Book, BookId: str):
@@ -38,4 +41,7 @@ def create_book(book: Book, BookId: str):
         inventory[BookId] = book
         return inventory[BookId]
     else:
-        return {"message": "Book with that id already exists."}
+        raise HTTPException(
+            status_code= 409,
+            detail= "Resource already exists."
+        )
