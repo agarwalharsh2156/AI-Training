@@ -2,37 +2,34 @@ from fastapi import FastAPI, Header, Cookie, Response
 from typing import Optional
 
 app = FastAPI()
+
 @app.get("/get-data/")
 def get_data(
-    x_api_key : str = Header(...),
+    x_api_key: str = Header(...),
     user_agent: Optional[str] = Header(None),
-    session_key: str = Cookie(None)
+    session_key: Optional[str] = Cookie(None)  
 ):
-    if session_key:
-        if x_api_key == "get_data_access1234":
-            return "Here is your data."
-        else:
-            return "You are not authorised to access this data."
-    else:
-        return "You are not logged in, please login to access the app features."
-    
+    if not session_key:
+        return {"message": "You are not logged in. Please login first."}
+    if x_api_key != "get_data_access1234":
+        return {"message": "Invalid API key. You are not authorised."}
+    return {"message": "Here is your data.", "user_agent": user_agent}
 
-@app.get("/login/")
-def login(response:Response):
+
+@app.post("/login/")          
+def login(response: Response):
     response.set_cookie(
-        key = "session_key",
-        value= "session_key_created123",
-        httponly = True,
-        expires= 30
+        key="session_key",
+        value="session_key_created123",
+        httponly=True,
+        max_age=3600       
     )
-    return {"message": "You are logged in"}
+    return {"message": "You are logged in."}
 
-@app.get("/logout/")
-def logout(response: Response, session_key: str= Cookie(None)):
-    if session_key:
-        response.delete_cookie(
-            key = "session_key"
-        )
-        return {"message": "User logged out."}
-    else:
-        return {"message": "You first need to login idiot."}
+
+@app.post("/logout/")         
+def logout(response: Response, session_key: Optional[str] = Cookie(None)):
+    if not session_key:
+        return {"message": "You are not logged in."}
+    response.delete_cookie(key="session_key")
+    return {"message": "Logged out successfully."}
