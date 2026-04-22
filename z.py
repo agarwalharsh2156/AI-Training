@@ -49,21 +49,26 @@
 
 
 
-students = {
-    1: {
-        "name" : "Harsh",
-        "college": "PICA"
-    },
-    2: {
-        "name": "Krisha",
-        "college": "PICA"
-    },
-    3: {
-        "name": "Mahi",
-        "college": "Jai Hind"
-    }
-}
+# students = {
+#     1: {
+#         "name" : "Harsh",
+#         "college": "PICA"
+#     },
+#     2: {
+#         "name": "Krisha",
+#         "college": "PICA"
+#     },
+#     3: {
+#         "name": "Mahi",
+#         "college": "Jai Hind"
+#     }
+# }
 
-for key in students[1].keys():
-    print(students[1][key])
+# for key in students[1].keys():
+#     print(students[1][key])
 
+
+z = None
+if z:
+    print("z")
+print("hi")
