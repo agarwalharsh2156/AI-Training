@@ -48,7 +48,7 @@ def add_student(student_id:int, student: Student):
     if student_id in students:
         return {"error": "Student on that id already exists"}
     else:
-        students[student_id] = student
+        students[student_id] = dict(student)
         return students[student_id]
 
 # updating student using PUT
@@ -67,7 +67,10 @@ def update_student(student_id: int, student: UpdateStudent):
         return students[student_id]
     
 # Deleting a student
-@app.delete("delete-student/{student_id}")
-def delete_student(student_id):
-    del students[student_id]
-    return {"message": "Student deleted."}
+@app.delete("/delete-student/{student_id}")
+def delete_student(student_id: int):
+    if student_id not in students:
+        return {"error": "No student with that id exists."}
+    else:
+        del students[student_id]
+        return {"message": "Student deleted."}
