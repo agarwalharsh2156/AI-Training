@@ -1,0 +1,32 @@
+ANN => Artificial Neural Network
+A network of aritficial neurons inspired by biological nuerons. 
+The neurons in this network are called perceptrons.
+
+Perceptrons => These take inputs, multiply weights, sums them up and then add the bias to this sum.
+This sum is passed through an activation function, the very basic one used is called a step function.
+This step function gives only 2 possible outputs 1 or 0 (Binary Classification).
+This is generally used to fit data that is linearlly separable.
+
+Problem with Perceptron =>
+They can only solve AND problem which is linearlly separable but the data which requires non-linear
+separation requires you to fit a curve through the data.
+This is where MLP comes in picture.
+
+MLP => Multi Layer Perceptron
+This is a Feed Forward Network which consists of multiple layers of PerceptronS.
+Multiple perceptrons allow you to find non-linerar patterns through the data along with finding unique and intrinsic pattern through each layer.
+
+Mathematical Intuitions behind MLP ->
+a(l) = sigma(W(l) * a(l-1) + b(l))
+
+here l is the number of layers
+a(l) is the final output.
+a(l-1) is the output from the previous layer.
+b(l) is the bias vector of the layer output being generated from
+
+Starting with layer 1
+a(0) = x  ------------ where x is the input vector
+W(1) = Weight matrix for the first layer
+b(1) = bias vector for the first layer
+
+** refer notebook notes for better understanding.
