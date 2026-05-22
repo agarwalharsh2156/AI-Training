@@ -5,3 +5,4 @@ data
 dataset
 .env
 embedding_model
+chroma_rag_db
