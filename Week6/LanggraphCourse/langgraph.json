@@ -1,0 +1,7 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "my_agent": "./graph_layout.ipynb:graph"
+  },
+  "env": ".env"
+}
