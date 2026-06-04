@@ -6,3 +6,6 @@ dataset
 .env
 embedding_model
 chroma_rag_db
+db_path
+db_path-shm
+db_path-wal
